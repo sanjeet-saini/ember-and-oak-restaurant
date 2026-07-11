@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ember & Oak — crafted over fire, served with soul.">
+  <title>Ember & Oak — Crafted Flavors</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="scrolly" id="top">
+      <div class="sticky-scene">
+        <canvas id="food-canvas" aria-label="A burger being assembled as you scroll"></canvas>
+        <div class="canvas-shade"></div>
+
+        <nav class="nav">
+          <a class="brand" href="#top">Ember <span>&</span> Oak</a>
+          <a class="nav-cta" href="#reserve">Reserve a table</a>
+        </nav>
+
+        <div class="overlay overlay-hero" data-start="0" data-peak-in="0.04" data-peak-out="0.20" data-end="0.27">
+          <div class="center-copy">
+            <p class="eyebrow">Flame · craft · flavour</p>
+            <h1>Crafted<br><em>Flavors.</em></h1>
+          </div>
+        </div>
+
+        <div class="overlay overlay-fresh" data-start="0.20" data-peak-in="0.30" data-peak-out="0.43" data-end="0.52">
+          <div class="left-copy">
+            <span class="rule"></span>
+            <p class="eyebrow">No shortcuts</p>
+            <h2>Fresh ingredients,<br><em>bold taste.</em></h2>
+          </div>
+        </div>
+
+        <div class="overlay overlay-story" data-start="0.49" data-peak-in="0.61" data-peak-out="0.76" data-end="0.86">
+          <div class="right-copy">
+            <p class="eyebrow">Made to be remembered</p>
+            <h2>Where every dish<br><em>tells a story.</em></h2>
+          </div>
+        </div>
+
+        <div class="overlay overlay-finish" data-start="0.82" data-peak-in="0.94" data-peak-out="1" data-end="1">
+          <p class="finish-pill">Meet the signatures ↓</p>
+        </div>
+
+        <div class="loader" id="loader">
+          <div class="loader-content">
+            <p>Preparing your table</p>
+            <div class="loader-track"><span id="loader-bar"></span></div>
+            <small id="loader-text">0%</small>
+          </div>
+        </div>
+
+        <div class="scroll-cue"><span>Scroll to build</span><i></i></div>
+      </div>
+    </section>
+
+    <section class="menu" id="signatures">
+      <div class="menu-glow"></div>
+      <div class="container">
+        <header class="section-heading">
+          <div><p class="eyebrow">From the fire</p><h2>Our signatures</h2></div>
+          <p>Four favourites. Locally sourced, flame-finished and built to make a glorious mess.</p>
+        </header>
+        <div class="menu-grid">
+          <article class="dish-card"><img src="images/ember-stack.png" alt="The Ember Stack double smash cheeseburger" loading="lazy"><div class="card-shade"></div><span class="number">01</span><div class="dish-info"><div><h3>The Ember Stack</h3><strong>$24</strong></div><p>Double smashed beef, smoked cheddar, charred onion and our ember sauce.</p></div></article>
+          <article class="dish-card"><img src="images/oakhouse-classic.png" alt="Oakhouse Classic dry-aged beef burger" loading="lazy"><div class="card-shade"></div><span class="number">02</span><div class="dish-info"><div><h3>Oakhouse Classic</h3><strong>$19</strong></div><p>Dry-aged beef, crisp leaves, heritage tomato and sharp house pickles.</p></div></article>
+          <article class="dish-card"><img src="images/golden-hour.png" alt="Golden Hour cheddar and caramelised onion burger" loading="lazy"><div class="card-shade"></div><span class="number">03</span><div class="dish-info"><div><h3>Golden Hour</h3><strong>$21</strong></div><p>Mature cheddar, caramelised onions, mustard aioli and a toasted brioche crown.</p></div></article>
+          <article class="dish-card"><img src="images/final-cut.png" alt="The Final Cut signature burger with fries" loading="lazy"><div class="card-shade"></div><span class="number">04</span><div class="dish-info"><div><h3>The Final Cut</h3><strong>$27</strong></div><p>Everything, unapologetically. Built tall and served with skin-on fries.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL MENU: Edit the placeholder dishes in script.js inside menuItems. -->
+    <section class="full-menu reveal-section" id="menu">
+      <div class="container">
+        <header class="section-heading new-heading">
+          <div><p class="eyebrow">Explore the table</p><h2>Full Menu</h2></div>
+          <p>Every dish, made from scratch, every single day.</p>
+        </header>
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+          <button class="menu-tab active" type="button" data-category="starters" role="tab" aria-selected="true">Starters</button>
+          <button class="menu-tab" type="button" data-category="mains" role="tab" aria-selected="false">Mains</button>
+          <button class="menu-tab" type="button" data-category="burgers" role="tab" aria-selected="false">Burgers</button>
+          <button class="menu-tab" type="button" data-category="desserts" role="tab" aria-selected="false">Desserts</button>
+          <button class="menu-tab" type="button" data-category="drinks" role="tab" aria-selected="false">Drinks</button>
+        </div>
+        <div class="menu-list" id="menu-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- REVIEWS: Replace quotes/names below with real customer reviews. -->
+    <section class="reviews reveal-section" id="reviews">
+      <div class="reviews-glow"></div>
+      <div class="container">
+        <header class="section-heading new-heading">
+          <div><p class="eyebrow">Notes from our guests</p><h2>What people are saying</h2></div>
+          <p>Real words from real regulars.</p>
+        </header>
+        <div class="review-controls">
+          <button class="carousel-arrow" id="review-prev" type="button" aria-label="Previous reviews">←</button>
+          <button class="carousel-arrow" id="review-next" type="button" aria-label="Next reviews">→</button>
+        </div>
+        <div class="review-viewport" id="review-carousel">
+          <div class="review-track">
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The Ember Stack is unapologetically messy, smoky and absolutely worth every bite.”</blockquote><div><strong>Maya R.</strong><span>Google Review</span></div></article>
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Beautiful room, warm service and a burger I have been thinking about all week.”</blockquote><div><strong>Daniel K.</strong><span>Verified Guest</span></div></article>
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Every detail feels considered, from the first cocktail to the final spoon of dessert.”</blockquote><div><strong>Sofia M.</strong><span>Google Review</span></div></article>
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“The kind of neighbourhood restaurant you want to keep secret—but cannot stop recommending.”</blockquote><div><strong>Alex T.</strong><span>Verified Guest</span></div></article>
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“Deep flavours, perfect char and genuinely thoughtful hospitality. We will be back.”</blockquote><div><strong>Priya S.</strong><span>Google Review</span></div></article>
+            <article class="review-card"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote>“A brilliant date-night spot. Moody, relaxed and every plate arrived looking incredible.”</blockquote><div><strong>James L.</strong><span>Verified Guest</span></div></article>
+          </div>
+        </div>
+        <div class="carousel-dots" id="review-dots" aria-label="Review carousel pages"></div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM: Swap these sequence frames for real square post images later. -->
+    <section class="instagram reveal-section" id="instagram">
+      <div class="container">
+        <header class="section-heading new-heading">
+          <div><p class="eyebrow">Behind the pass</p><h2>Follow the fire</h2></div>
+          <p>Tag us in your food photos.</p>
+        </header>
+        <div class="instagram-grid">
+          <a class="instagram-tile" href="#instagram" aria-label="View Ember Stack Instagram post"><img src="images/ember-stack.png" alt="The Ember Stack in dramatic firelight" loading="lazy"><span><b aria-hidden="true">◎</b> View Post</span></a>
+          <a class="instagram-tile" href="#instagram" aria-label="View Oakhouse Classic Instagram post"><img src="images/oakhouse-classic.png" alt="Oakhouse Classic burger close-up" loading="lazy"><span><b aria-hidden="true">◎</b> View Post</span></a>
+          <a class="instagram-tile" href="#instagram" aria-label="View Golden Hour Instagram post"><img src="images/golden-hour.png" alt="Golden Hour burger in warm amber light" loading="lazy"><span><b aria-hidden="true">◎</b> View Post</span></a>
+          <a class="instagram-tile" href="#instagram" aria-label="View Final Cut Instagram post"><img src="images/final-cut.png" alt="The Final Cut signature burger and fries" loading="lazy"><span><b aria-hidden="true">◎</b> View Post</span></a>
+        </div>
+        <div class="instagram-action"><a class="pill-button" href="#instagram">Follow on Instagram <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="reservation" id="reserve">
+      <div class="reservation-frame"></div>
+      <div class="reservation-copy">
+        <p class="eyebrow">Dinner is calling</p>
+        <h2>Your table<br><em>awaits.</em></h2>
+        <p>Join us Tuesday through Sunday from 5pm. Come hungry; we’ll take care of the rest.</p>
+        <a href="mailto:tables@emberandoak.com?subject=Table reservation">Book your table <span>↗</span></a>
+      </div>
+      <footer><span>Ember & Oak · Est. 2026</span><span>42 Hearth Street · Open 5pm–late</span><span>Instagram · Directions</span></footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
