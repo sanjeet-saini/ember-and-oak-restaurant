@@ -17,7 +17,7 @@ let ticking = false;
 
 function frameSource(index) {
   const sourceNumber = START_FRAME + index;
-  return `sequence/frame_${String(sourceNumber).padStart(3, '0')}_delay-0.05s.png`;
+  return `sequence/frame_${String(sourceNumber).padStart(3, '0')}_delay-0.05s.webp`;
 }
 
 function sizeCanvas() {
