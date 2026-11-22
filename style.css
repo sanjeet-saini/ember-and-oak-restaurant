@@ -770,8 +770,9 @@ a {
     font-size: 18px;
   }
   .nav-cta {
-    padding: 9px 13px;
-    font-size: 8px;
+    padding: 11px 14px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
   }
   .overlay-fresh,
   .overlay-story {
@@ -834,7 +835,8 @@ a {
     border-radius: 18px;
   }
   .reservation {
-    padding: 120px 20px 35px;
+    /* Extra side padding keeps the text inside the rounded frame (inset 20px) */
+    padding: 120px 40px 45px;
   }
   .reservation-frame {
     inset: 20px;
@@ -844,6 +846,27 @@ a {
     flex-direction: column;
     gap: 14px;
     margin-top: 90px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-align: center;
+  }
+  .menu-item p {
+    white-space: normal;
+  }
+  .scroll-cue span {
+    font-size: 10px;
+  }
+  .pill-button {
+    font-size: 11px;
+  }
+  /* Same small dots, but a 26px tap area around each one */
+  .carousel-dots {
+    gap: 0;
+  }
+  .carousel-dot {
+    box-sizing: content-box;
+    padding: 10px;
+    background-clip: content-box;
   }
 }
 @media (prefers-reduced-motion: reduce) {
